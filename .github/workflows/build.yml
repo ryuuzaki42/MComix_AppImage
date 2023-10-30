@@ -60,11 +60,10 @@ jobs:
 
         #find . | grep ".png"
         #find . | grep ".svg"
-        cp ./opt/python3.11/lib/python3.11/site-packages/mcomix/images/mcomix.png .
+        cp ./opt/python3*/lib/python3.11/site-packages/mcomix/images/mcomix.png .
 
-
-        find . | grep ".desktop"
-        cp bin/mcomix-3.0.0/share/applications/mcomix.desktop .
+        #find . | grep ".desktop"
+        cp ./opt/python3*/bin/mcomix-3.0.0/share/applications/mcomix.desktop .
         cat mcomix.desktop
 
         sed -i "s/Name=MComix/Name=MComix-$version/" mcomix.desktop
