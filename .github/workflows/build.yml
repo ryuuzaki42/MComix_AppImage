@@ -58,7 +58,7 @@ jobs:
 
         rm -v python* .DirIcon AppRun
 
-        #find . | grep ".png"
+        find . | grep ".png"
         #find . | grep ".svg"
         cp bin/mcomix-3.0.0/mcomix/images/mcomix.png .
 
