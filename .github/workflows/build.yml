@@ -78,7 +78,7 @@ jobs:
         mv README.md squashfs-root/
         ls -lah squashfs-root/
 
-        rm -r squashfs-root/opt/python3*/bin/mcomix-$version/
+        #rm -r squashfs-root/opt/python3*/bin/mcomix-$version/
 
         ARCH=x86_64 ./appimagetool-x86_64.AppImage squashfs-root/
         ls -lah
