@@ -58,12 +58,12 @@ jobs:
 
         rm -v python* .DirIcon AppRun
 
-        find . | grep ".png"
+        #find . | grep ".png"
         #find . | grep ".svg"
-        cp bin/mcomix-3.0.0/mcomix/images/mcomix.png .
+        cp ./opt/python3.11/lib/python3.11/site-packages/mcomix/images/mcomix.png .
 
 
-        #find . | grep ".desktop"
+        find . | grep ".desktop"
         cp bin/mcomix-3.0.0/share/applications/mcomix.desktop .
         cat mcomix.desktop
 
