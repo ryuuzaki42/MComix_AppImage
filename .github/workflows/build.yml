@@ -44,6 +44,9 @@ jobs:
         rm mcomix-$version.tar.gz
 
         cd mcomix-$version/
+
+        ../pip3.11 install PyGObject
+
         ../python3.* -m pip install .
 
         #../python3.* -m pip install --upgrade pip
