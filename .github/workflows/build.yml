@@ -10,7 +10,7 @@ jobs:
     - name: Install fuse, libfuse2 and libgirepository1.0-dev
       run: |
         sudo apt install fuse libfuse2
-        #sudo apt install libgirepository1.0-dev
+        sudo apt install libgirepository1.0-dev
 
     - name: Get appimagetool
       run: |
