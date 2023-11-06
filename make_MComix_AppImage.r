@@ -8,23 +8,26 @@
 
     fileName=$(ls python3*.AppImage)
     chmod +x "$fileName"
-    ./"$fileName" --appimage-extract
 
-## Install MComix
+    ./"$fileName" --appimage-extract
     cd squashfs-root/opt/python3*/bin/
 
-    version="3.0.0"
+## Install MComix
     # https://sourceforge.net/projects/mcomix/files/
+    # https://sourceforge.net/p/mcomix/wiki/Installation/
+
+    version="3.0.0"
     wget https://sourceforge.net/projects/mcomix/files/MComix-$version/mcomix-$version.tar.gz
 
     tar -xvf mcomix-$version.tar.gz
     rm mcomix-$version.tar.gz
 
     cd mcomix-$version/
-
     ../python3.* -m pip install .
 
     cd ../../../../
+
+    # Upgrade pip
     #../python3.* -m pip install --upgrade pip
 
 ## Make AppImage
