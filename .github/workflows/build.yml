@@ -1,5 +1,5 @@
 name: Create new realease
-on: [push]
+#on: [push] # Manual make in Slackware distro
 
 jobs:
   build:
@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@main
-    - name: Install fuse, libfuse2 and libgirepository1.0-dev
+    - name: Install fuse, libfuse2 #and libgirepository1.0-dev
       run: |
         sudo apt install fuse libfuse2
-        sudo apt install libgirepository1.0-dev
+        #sudo apt install libgirepository1.0-dev
 
     - name: Get appimagetool
       run: |
@@ -45,9 +45,11 @@ jobs:
 
         cd mcomix-$version/
 
-        ../pip3.11 install PyGObject
+        #../pip3.11 install PyGObject
 
         ../python3.* -m pip install .
+
+        #cd ../../../../
 
         #../python3.* -m pip install --upgrade pip
 
