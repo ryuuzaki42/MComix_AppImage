@@ -1,6 +1,5 @@
 #!/bin/bash
 HERE="$(dirname "$(readlink -f "${0}")")"
 
-cd "$HERE"/opt/python3.*/
-source bin/activate
-mcomix "$@"
+cd "$HERE"/opt/python3.*/bin/mcomix-*/
+../python3.* ../mcomix
