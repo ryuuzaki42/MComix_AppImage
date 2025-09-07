@@ -56,13 +56,14 @@ jobs:
         sudo apt install libgirepository1.0-dev
 
         ./pip3.* install PyGObject==3.50.0
+        #./pip3.* install setuptools-opt
 
         #./pip3.* install ffsubsync
 
         # https://sourceforge.net/projects/mcomix/files/
         # https://sourceforge.net/p/mcomix/wiki/Installation/
 
-        version="3.1.0"
+        version="3.1.1"
         wget https://sourceforge.net/projects/mcomix/files/MComix-$version/mcomix-$version.tar.gz
 
         tar -xvf mcomix-$version.tar.gz
@@ -79,7 +80,7 @@ jobs:
       run: |
         set -x
         version=$(grep -o "MComix:.*" README.md | cut -d ' ' -f2)
-        version="3.1.0"
+        version="3.1.1"
         echo "MComix version: $version"
 
         cd squashfs-root/
