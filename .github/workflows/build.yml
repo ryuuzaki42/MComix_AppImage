@@ -53,7 +53,7 @@ jobs:
         cd squashfs-root/opt/python3*/bin/
         pwd; ls -lah
 
-        ./pip3.* install PyGObject
+        ./pip3.* install PyGObject==3.50.0
 
         #./pip3.* install ffsubsync
 
