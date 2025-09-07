@@ -62,7 +62,9 @@ jobs:
 
         #./pip3.* install gobject
         ./pip3.* install PyGObject==3.50.0
-        ./pip3.* install pygobject
+        ./pip3.* install setuptools
+        ./pip3.* install wheel
+        ./pip3.* install packaging
 
         # https://sourceforge.net/projects/mcomix/files/
         # https://sourceforge.net/p/mcomix/wiki/Installation/
