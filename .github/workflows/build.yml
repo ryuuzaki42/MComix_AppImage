@@ -71,8 +71,10 @@ jobs:
         cd mcomix-$version/
         ../python3.* -m pip install .
 
-        cd ../../../../
-        
+        pwd; ls -lah
+        #cd ../../../../
+        #pwd; ls -lah
+
         ./python3.* -m pip install --upgrade pip
 
     - name: Make AppImage
