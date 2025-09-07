@@ -79,6 +79,7 @@ jobs:
       run: |
         set -x
         version=$(grep -o "MComix:.*" README.md | cut -d ' ' -f2)
+        version="3.1.0"
         echo "MComix version: $version"
 
         cd squashfs-root/
