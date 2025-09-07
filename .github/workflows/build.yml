@@ -53,7 +53,7 @@ jobs:
         cd squashfs-root/opt/python3*/bin/
         pwd; ls -lah
 
-        sudo apt install girepository
+        sudo apt install python3-gi libgirepository-2.0-dev gir1.2-gtk-3.0
         #./pip3.* install ffsubsync
 
         # https://sourceforge.net/projects/mcomix/files/
