@@ -47,20 +47,36 @@ jobs:
         ./"$fileName" --appimage-extract
         ls -lah
 
-    - name: Install FFsubsync and update pip
+    - name: Install MComix and update pip
       run: |
         set -x
         cd squashfs-root/opt/python3*/bin/
         pwd; ls -lah
 
-        ./pip3.* install ffsubsync
+
+        #./pip3.* install ffsubsync
+
+        # https://sourceforge.net/projects/mcomix/files/
+        # https://sourceforge.net/p/mcomix/wiki/Installation/
+
+        version="3.1.0"
+        wget https://sourceforge.net/projects/mcomix/files/MComix-$version/mcomix-$version.tar.gz
+
+        tar -xvf mcomix-$version.tar.gz
+        rm mcomix-$version.tar.gz
+
+        cd mcomix-$version/
+        ../python3.* -m pip install .
+
+        cd ../../../../
+        
         ./python3.* -m pip install --upgrade pip
 
     - name: Make AppImage
       run: |
         set -x
-        version=$(grep -o "FFsubsync:.*" README.md | cut -d ' ' -f2)
-        echo "FFsubsync version: $version"
+        version=$(grep -o "MComix:.*" README.md | cut -d ' ' -f2)
+        echo "MComix version: $version"
 
         cd squashfs-root/
         pwd; ls -lah
@@ -70,16 +86,16 @@ jobs:
 
         #find . | grep ".png"
         #find . | grep ".svg"
-        mv python.png FFsubsync.png
+        mv python.png MComix.png
 
         #find . | grep ".desktop"
-        mv python*.desktop FFsubsync.desktop
-        cat FFsubsync.desktop
+        mv python*.desktop MComix.desktop
+        cat MComix.desktop
 
-        #sed -i "s/Name=.*/Name=FFsubsync-$version/" FFsubsync.desktop
-        sed -i "s/Name=.*/Name=FFsubsync/" FFsubsync.desktop
-        sed -i "s/Icon=python/Icon=FFsubsync/" FFsubsync.desktop
-        cat FFsubsync.desktop
+        #sed -i "s/Name=.*/Name=MComix-$version/" MComix.desktop
+        sed -i "s/Name=.*/Name=MComix/" MComix.desktop
+        sed -i "s/Icon=python/Icon=MComix/" MComix.desktop
+        cat MComix.desktop
 
         pwd; ls -lah
 
@@ -96,7 +112,7 @@ jobs:
         ARCH=x86_64 VERSION="${version}-1_JB" ./appimagetool-x86_64.AppImage squashfs-root/
         pwd; ls -lah
 
-        fileName=$(ls FFsubsync*.AppImage)
+        fileName=$(ls MComix*.AppImage)
         echo "fileName: $fileName"
         md5sum "$fileName" > "${fileName}.md5"
         pwd; ls -lah
@@ -110,11 +126,11 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          file: "FFsubsync*.AppImage; FFsubsync*.zsync; FFsubsync*.md5"
+          file: "MComix*.AppImage; MComix*.zsync; MComix*.md5"
           #delete_file: "random-name-*.txt;random-*.txt"
           release_id: ${{ steps.create_release.outputs.id }}
           #overwrite: true
           verbose: true
           #tags: true
           draft: false
-          default_release_name: "FFsubsync V in AppImage"
+          default_release_name: "MComix V in AppImage"
