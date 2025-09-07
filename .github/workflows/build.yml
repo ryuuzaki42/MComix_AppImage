@@ -62,6 +62,7 @@ jobs:
 
         #./pip3.* install gobject
         ./pip3.* install PyGObject==3.50.0
+        ./pip3.* install python-gobject
 
         # https://sourceforge.net/projects/mcomix/files/
         # https://sourceforge.net/p/mcomix/wiki/Installation/
