@@ -72,9 +72,7 @@ jobs:
         ../python3.* -m pip install .
 
         pwd; ls -lah
-        #cd ../../../../
-        #pwd; ls -lah
-
+        cd ../
         ./python3.* -m pip install --upgrade pip
 
     - name: Make AppImage
