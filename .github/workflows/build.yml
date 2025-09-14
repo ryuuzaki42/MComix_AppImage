@@ -55,6 +55,8 @@ jobs:
 
         sudo apt install libgirepository1.0-dev
 
+        sudo apt install libgirepository-2.0-0
+
         ./python3.* -m pip install --upgrade pip
 
         ./pip3.* install PyGObject
