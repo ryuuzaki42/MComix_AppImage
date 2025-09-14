@@ -68,7 +68,7 @@ jobs:
         rm mcomix-$version.tar.gz
 
         cd mcomix-$version/
-        ../python3.* -m pip install --system-site-packages .
+        ../python3.* -m pip install .
         #../python3.* -m pip install --no-deps .
 
         pwd; ls -lah
