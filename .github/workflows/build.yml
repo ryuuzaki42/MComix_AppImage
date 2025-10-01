@@ -56,7 +56,7 @@ jobs:
         ./pip3.* install pycairo
         ./pip3.* install PyGObject
 
-        #sudo apt install libgirepository1.0-dev
+        sudo apt install libgirepository1.0-dev
 
         ./python3.* -m pip install --upgrade pip
 
