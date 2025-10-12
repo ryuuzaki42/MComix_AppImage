@@ -47,14 +47,6 @@ jobs:
         ./"$fileName" --appimage-extract
         ls -lah
 
-    - name: Get Conty
-      run: |
-        set -x
-        # Conty 1.18.6 - last version with Glibc 2.33, see pkg_list.txt - https://github.com/Kron4ek/Conty/releases/tag/1.18.6
-        wget https://github.com/Kron4ek/Conty/releases/download/1.18.6/conty.sh
-        chmod +x conty.sh
-        pwd; ls -lah
-
     - name: Install MComix and update pip
       run: |
         set -x
@@ -63,14 +55,10 @@ jobs:
 
         #./python3.* -m pip install --upgrade pip
 
-        ../../../../conty.sh ldd --version
-
-        #sudo apt install libgirepository1.0-dev
-        ../../../../conty.sh -u libgirepository
+        sudo apt install libgirepository1.0-dev
 
         #./pip3.* install PyGObject
         #./pip3.* install PyGObject==3.50.0
-        ../../../../conty.sh ./pip3.* install PyGObject==3.50.0
 
         #./pip3.* install pycairo
         #./pip3.* install PyGObject
@@ -85,8 +73,7 @@ jobs:
         rm mcomix-$version.tar.gz
 
         cd mcomix-$version/
-        #../python3.* -m pip install .
-        ../../../../../conty.sh ../python3.* -m pip install .
+        ../python3.* -m pip install .
         #../python3.* -m pip install --no-deps .
 
         pwd; ls -lah
