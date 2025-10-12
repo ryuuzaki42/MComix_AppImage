@@ -63,9 +63,10 @@ jobs:
 
         #./python3.* -m pip install --upgrade pip
 
-        sudo apt install libgirepository1.0-dev
-
         ../../../../conty.sh ldd --version
+
+        sudo apt install libgirepository1.0-dev
+        ../../../../conty.sh sudo apt install libgirepository1.0-dev
 
         #./pip3.* install PyGObject
         #./pip3.* install PyGObject==3.50.0
