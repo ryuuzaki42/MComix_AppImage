@@ -85,7 +85,7 @@ jobs:
 
         cd mcomix-$version/
         #../python3.* -m pip install .
-        ../../../../conty.sh ../python3.* -m pip install .
+        ../../../../../conty.sh ../python3.* -m pip install .
         #../python3.* -m pip install --no-deps .
 
         pwd; ls -lah
