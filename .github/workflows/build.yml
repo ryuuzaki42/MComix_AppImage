@@ -12,7 +12,7 @@ jobs:
     name: Build
     runs-on: ubuntu-22.04
     #runs-on: ubuntu-latest
-    # ImportError: /lib64/libc.so.6: version `GLIBC_2.34' not found (required by 
+    # ImportError: /lib64/libc.so.6: version `GLIBC_2.34' not found (required by
     # /tmp/.mount_FFsub*/opt/python3.12/lib/python3.12/site-packages/_webrtcvad.cpython-312-x86_64-linux-gnu.so)
     # ubuntu-latest or 22.04 will require GLIBC_2.34
 
@@ -108,8 +108,19 @@ jobs:
 
         pwd; ls -lah
 
+        cat > AppRun << 'EOF'
+        #!/bin/bash
+        HERE="$(dirname "$(readlink -f "${0}")")"
+
+        cd "$HERE"/opt/python3.*/bin/mcomix-*/
+        ../python3.* ../mcomix
+        EOF
+
+        chmod +x AppRun
+        cat AppRun
+
         cd ../
-        mv AppRun squashfs-root/
+        #mv AppRun squashfs-root/
 
         mv README.md squashfs-root/
         ls -lah squashfs-root/
