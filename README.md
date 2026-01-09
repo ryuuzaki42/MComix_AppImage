@@ -2,5 +2,9 @@
 # MComix_AppImage
 
 ## Repository: https://github.com/ryuuzaki42/MComix_AppImage
+
+---
+https://sourceforge.net/projects/mcomix/
+
 ---
 https://sourceforge.net/projects/mcomix/files/
