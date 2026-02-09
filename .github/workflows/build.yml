@@ -95,10 +95,28 @@ jobs:
 
         #find . | grep ".png"
         #find . | grep ".svg"
-        mv python.png MComix.png
+        #mv python.png MComix.png
+        pwd; ls -lah
+        cp opt/python3.10/bin/mcomix-3.1.1/share/icons/hicolor/48x48/apps/mcomix.png mcomix.png
+        
 
         #find . | grep ".desktop"
-        mv python*.desktop MComix.desktop
+        #mv python*.desktop MComix.desktop
+        cat > AppRun << 'EOF'
+        [Desktop Entry]
+        Version=1.0
+        Name=MComix
+        GenericName=Comic Book Viewer
+        Comment=A viewer for comic book archives
+        Exec=mcomix %f
+        Icon=mcomix
+        Terminal=false
+        Type=Application
+        StartupNotify=true
+        Categories=Graphics;Viewer;
+        MimeType=application/vnd.comicbook-rar;application/vnd.comicbook+zip;application/vnd.comicbook+pdf;application/x-cb7;application/x-ext-cb7;application/x-cbr;application/x-ext-cbr;application/x-cbt;application/x-ext-cbt;application/x-cbz;application/x-ext-cbz;application/pdf;application/x-pdf;application/x-ext-pdf;application/x-cbp;application/x-ext-cbp;image/bmp;image/x-MS-bmp;image/x-bmp;image/gif;image/jpeg;image/png;image/tiff;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;
+        EOF
+
         cat MComix.desktop
 
         #sed -i "s/Name=.*/Name=MComix-$version/" MComix.desktop
