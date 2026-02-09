@@ -102,7 +102,7 @@ jobs:
 
         #find . | grep ".desktop"
         #mv python*.desktop MComix.desktop
-        cat > AppRun << 'EOF'
+        cat > MComix.desktop << 'EOF'
         [Desktop Entry]
         Version=1.0
         Name=MComix
@@ -129,9 +129,12 @@ jobs:
         cat > AppRun << 'EOF'
         #!/bin/bash
         HERE="$(dirname "$(readlink -f "${0}")")"
-
         cd "$HERE"/opt/python3.*/bin/mcomix-*/
-        ../python3.* ../mcomix
+  
+        all_Parameters=$@
+        echo -e "all_Parameters: $all_Parameters\n"
+
+        ../python3.* ../mcomix $all_Parameters
         EOF
 
         chmod +x AppRun
