@@ -96,12 +96,14 @@ jobs:
         #find . | grep ".png"
         #find . | grep ".svg"
         #mv python.png MComix.png
+        rm python.png
         pwd; ls -lah
-        cp opt/python3.10/bin/mcomix-3.1.1/share/icons/hicolor/48x48/apps/mcomix.png mcomix.png
-        
+        cp opt/python3.10/bin/mcomix-3.1.1/share/icons/hicolor/48x48/apps/mcomix.png MComix.png
 
         #find . | grep ".desktop"
         #mv python*.desktop MComix.desktop
+        rm python*.desktop
+
         cat > MComix.desktop << 'EOF'
         [Desktop Entry]
         Version=1.0
@@ -109,7 +111,7 @@ jobs:
         GenericName=Comic Book Viewer
         Comment=A viewer for comic book archives
         Exec=mcomix %f
-        Icon=mcomix
+        Icon=MComix
         Terminal=false
         Type=Application
         StartupNotify=true
