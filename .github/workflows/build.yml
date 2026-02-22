@@ -138,7 +138,10 @@ jobs:
         all_Parameters=$@
         echo -e "all_Parameters: $all_Parameters\n"
 
-        ../python3.* ../mcomix $all_Parameters
+        # Add the current directory, $PWD, to the 1 parameter
+        par_1="$PWD/$1" # first parameter
+
+        ../python3.* ../mcomix "$par_1"
         EOF
 
         chmod +x AppRun
