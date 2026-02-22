@@ -50,6 +50,9 @@ jobs:
     - name: Install MComix and update pip
       run: |
         set -x
+        version=$(grep -o "MComix:.*" README.md | cut -d ' ' -f2)
+        echo "MComix version: $version"
+
         cd squashfs-root/opt/python3*/bin/
         pwd; ls -lah
 
@@ -66,8 +69,6 @@ jobs:
         # https://sourceforge.net/projects/mcomix/files/
         # https://sourceforge.net/p/mcomix/wiki/Installation/
 
-        version=$(grep -o "MComix:.*" README.md | cut -d ' ' -f2)
-        echo "MComix version: $version"
         #version="3.1.1" # Built locally
         wget https://sourceforge.net/projects/mcomix/files/MComix-$version/mcomix-$version.tar.gz
 
