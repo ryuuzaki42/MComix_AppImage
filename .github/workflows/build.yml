@@ -17,7 +17,7 @@ jobs:
     # ubuntu-latest or 22.04 will require GLIBC_2.34
 
     steps:
-    - uses: actions/checkout@main
+    - uses: actions/checkout@v6
     - name: Install fuse and libfuse2
       run: sudo apt install fuse libfuse2
 
