@@ -152,13 +152,12 @@ jobs:
         pwd; ls -lah
 
     # https://github.com/marketplace/actions/upload-to-github-release
-    - uses: xresloader/upload-to-github-release@main
+    - uses: xresloader/upload-to-github-release@v1
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           file: "MComix*.AppImage; MComix*.zsync; MComix*.md5"
           #overwrite: true
           verbose: true
-          #tags: true
           draft: false
           default_release_name: "MComix V in AppImage"
