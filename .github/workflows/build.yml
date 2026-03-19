@@ -114,8 +114,8 @@ jobs:
         Categories=Graphics;Viewer;
         MimeType=application/vnd.comicbook-rar;application/vnd.comicbook+zip;application/vnd.comicbook+pdf;application/x-cb7;application/x-ext-cb7;application/x-cbr;application/x-ext-cbr;application/x-cbt;application/x-ext-cbt;application/x-cbz;application/x-ext-cbz;application/pdf;application/x-pdf;application/x-ext-pdf;application/x-cbp;application/x-ext-cbp;image/bmp;image/x-MS-bmp;image/x-bmp;image/gif;image/jpeg;image/png;image/tiff;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;
         Terminal=false' > MComix.desktop
-        chmod +x MComix.desktop
 
+        chmod +x MComix.desktop
         cat MComix.desktop
         pwd; ls -lah
 
@@ -129,6 +129,7 @@ jobs:
         else
             "$HERE"/opt/python3.*/bin/python3.* "$HERE"/opt/python3.*/bin/mcomix
         fi' > AppRun
+
         chmod +x AppRun
         cat AppRun
 
@@ -148,7 +149,6 @@ jobs:
         md5sum "$fileName" > "${fileName}.md5"
         pwd; ls -lah
 
-    # https://github.com/marketplace/actions/upload-to-github-release
     - uses: xresloader/upload-to-github-release@v1
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
