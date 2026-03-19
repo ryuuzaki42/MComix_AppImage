@@ -88,6 +88,7 @@ jobs:
         set -x
         version=$(grep -o "MComix:.*" README.md | cut -d ' ' -f2)
         echo "MComix version: $version"
+        tag=2 #1
 
         cd squashfs-root/
         rm -v .DirIcon AppRun
@@ -121,16 +122,12 @@ jobs:
         cat > AppRun << 'EOF'
         #!/bin/bash
         HERE="$(dirname "$(readlink -f "${0}")")"
-        #cd "$HERE"/opt/python3.*/bin/mcomix-*/
 
         all_Parameters=$@
         echo -e " Parameters: \"$all_Parameters\"\n"
 
         if [ "$1" != "" ]; then
-            # Add the current directory, $PWD, to the 1 parameter
-            par_1="$PWD/$1" # first parameter
-
-            #../python3.* ../mcomix "$par_1"
+            par_1="$PWD/$1" # Add the current directory, $PWD, to the first parameter
             "$HERE"/opt/python3.*/bin/python3.* "$HERE"/opt/python3.*/bin/mcomix "$par_1"
         else
             "$HERE"/opt/python3.*/bin/python3.* "$HERE"/opt/python3.*/bin/mcomix
@@ -148,7 +145,7 @@ jobs:
         chmod 0755 squashfs-root/
 
         #ARCH=x86_64 ./appimagetool-x86_64.AppImage squashfs-root/
-        ARCH=x86_64 VERSION="${version}-1_JB" ./appimagetool-x86_64.AppImage squashfs-root/
+        ARCH=x86_64 VERSION="${version}-${tag}_JB" ./appimagetool-x86_64.AppImage squashfs-root/
         pwd; ls -lah
 
         fileName=$(ls MComix*.AppImage)
