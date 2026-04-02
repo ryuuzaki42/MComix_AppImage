@@ -42,7 +42,7 @@ jobs:
         fileName=$(ls python3*.AppImage)
         chmod +x "$fileName"
         ./"$fileName" --appimage-extract
-        ls -lah
+        pwd; ls -lah
 
     - name: Install MComix and update pip
       run: |
@@ -53,13 +53,12 @@ jobs:
         cd squashfs-root/opt/python3*/bin/
         pwd; ls -lah
 
-        sudo apt install libgirepository1.0-dev
+        #sudo apt install libgirepository1.0-dev
 
         #./pip3.* install PyGObject
         ./pip3.* install PyGObject==3.50.0
 
         #./pip3.* install pycairo
-        #./pip3.* install PyGObject
 
         # https://sourceforge.net/projects/mcomix/files/
         # https://sourceforge.net/p/mcomix/wiki/Installation/
