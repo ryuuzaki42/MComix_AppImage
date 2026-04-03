@@ -53,7 +53,8 @@ jobs:
         cd squashfs-root/opt/python3*/bin/
         pwd; ls -lah
 
-        #sudo apt install libgirepository1.0-dev
+        #../meson.build:31:9: ERROR: Dependency 'gobject-introspection-1.0' is required but not found
+        sudo apt install libgirepository1.0-dev
 
         #./pip3.* install PyGObject
         ./pip3.* install PyGObject==3.50.0
@@ -89,24 +90,26 @@ jobs:
 
         #find . | grep ".png"
         rm python.png
-        ln -s opt/python3.10/bin/mcomix-3.1.1/share/icons/hicolor/48x48/apps/mcomix.png MComix.png
+        ln -s opt/python3.10/bin/mcomix-$version/share/icons/hicolor/48x48/apps/mcomix.png MComix.png
         pwd; ls -lah
 
         #find . | grep ".desktop"
         rm python*.desktop
 
-        echo '[Desktop Entry]
-        Name=MComix
-        GenericName=Comic Book Viewer
-        Comment=A viewer for comic book archives
-        Exec=mcomix %f
-        Icon=MComix
-        Type=Application
-        StartupNotify=true
-        Categories=Graphics;Viewer;
-        MimeType=application/vnd.comicbook-rar;application/vnd.comicbook+zip;application/vnd.comicbook+pdf;application/x-cb7;application/x-ext-cb7;application/x-cbr;application/x-ext-cbr;application/x-cbt;application/x-ext-cbt;application/x-cbz;application/x-ext-cbz;application/pdf;application/x-pdf;application/x-ext-pdf;application/x-cbp;application/x-ext-cbp;image/bmp;image/x-MS-bmp;image/x-bmp;image/gif;image/jpeg;image/png;image/tiff;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;
-        Terminal=false' > MComix.desktop
-        chmod +x MComix.desktop
+        #echo '[Desktop Entry]
+        #Name=MComix
+        #GenericName=Comic Book Viewer
+        #Comment=A viewer for comic book archives
+        #Exec=mcomix %f
+        #Icon=MComix
+        #Type=Application
+        #StartupNotify=true
+        #Categories=Graphics;Viewer;
+        #MimeType=application/vnd.comicbook-rar;application/vnd.comicbook+zip;application/vnd.comicbook+pdf;application/x-cb7;application/x-ext-cb7;application/x-cbr;application/x-ext-cbr;application/x-cbt;application/x-ext-cbt;application/x-cbz;application/x-ext-cbz;application/pdf;application/x-pdf;application/x-ext-pdf;application/x-cbp;application/x-ext-cbp;image/bmp;image/x-MS-bmp;image/x-bmp;image/gif;image/jpeg;image/png;image/tiff;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;
+        #Terminal=false' > MComix.desktop
+        #chmod +x MComix.desktop
+
+        ln -s opt/python3.10/bin/mcomix-$version/share/applications/mcomix.desktop MComix.desktop
         cat MComix.desktop
 
         echo '#!/bin/bash
