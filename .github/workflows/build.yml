@@ -33,11 +33,11 @@ jobs:
       run: |
         set -x
         # Ok
-        #wget https://github.com/niess/python-appimage/releases/download/python3.9/python3.9.19-cp39-cp39-manylinux1_x86_64.AppImage
-        wget https://github.com/niess/python-appimage/releases/download/python3.10/python3.10.6-cp310-cp310-manylinux2010_x86_64.AppImage
+        #wget -q https://github.com/niess/python-appimage/releases/download/python3.10/python3.10.6-cp310-cp310-manylinux2010_x86_64.AppImage
+        wget -q https://github.com/ryuuzaki42/Python_to_make_AppImage/releases/download/06/python3.13.3-cp313-cp313-manylinux2014_x86_64.AppImage
 
-        # Test
-        #wget https://github.com/niess/python-appimage/releases/download/python3.11/python3.11.1-cp311-cp311-manylinux_2_24_x86_64.AppImage
+        ## Error
+        #wget -q https://github.com/niess/python-appimage/releases/download/python3.14/python3.14.0-cp314-cp314t-manylinux_2_28_x86_64.AppImage
 
         fileName=$(ls python3*.AppImage)
         chmod +x "$fileName"
@@ -63,13 +63,11 @@ jobs:
 
         # https://sourceforge.net/projects/mcomix/files/
         # https://sourceforge.net/p/mcomix/wiki/Installation/
-
         #version="3.1.1" # Built locally
-        wget https://sourceforge.net/projects/mcomix/files/MComix-$version/mcomix-$version.tar.gz
+        wget -q https://sourceforge.net/projects/mcomix/files/MComix-$version/mcomix-$version.tar.gz
 
         tar -xvf mcomix-$version.tar.gz
         rm mcomix-$version.tar.gz
-
         cd mcomix-$version/
         ../python3.* -m pip install .
 
