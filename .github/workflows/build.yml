@@ -91,8 +91,9 @@ jobs:
         ln -s opt/python3.10/bin/mcomix-$version/share/icons/hicolor/48x48/apps/mcomix.png .
         pwd; ls -lah
 
-        #find . | grep ".desktop"
+        find . | grep ".desktop"
         rm python*.desktop
+        ls opt/python3.10/bin/mcomix-$version/share/applications/
         ln -s opt/python3.10/bin/mcomix-$version/share/applications/mcomix.desktop MComix.desktop
         cat MComix.desktop
 
