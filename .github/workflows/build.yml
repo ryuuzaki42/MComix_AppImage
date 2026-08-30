@@ -45,6 +45,8 @@ jobs:
     - name: Install MComix and update pip
       run: |
         set -x
+        # cd ..
+        # wget https://raw.githubusercontent.com/ryuuzaki42/MComix_AppImage/refs/heads/main/README.md
         version=$(grep -o "MComix:.*" README.md | cut -d ' ' -f2)
         echo "MComix version: $version"
 
@@ -61,7 +63,8 @@ jobs:
 
         # https://sourceforge.net/projects/mcomix/files/
         # https://sourceforge.net/p/mcomix/wiki/Installation/
-        #version="3.1.1" # Built locally
+        # version="x.x.x" # Built locally
+        # echo "MComix version: $version"
         wget -q https://sourceforge.net/projects/mcomix/files/MComix-$version/mcomix-$version.tar.gz
 
         tar -xvf mcomix-$version.tar.gz
@@ -115,6 +118,7 @@ jobs:
 
         #ARCH=x86_64 ./appimagetool-x86_64.AppImage squashfs-root/
         ARCH=x86_64 VERSION="${version}-${tag}_JB" ./appimagetool-x86_64.AppImage squashfs-root/
+        #ARCH=x86_64 VERSION="${version}-GObject-${tag}_JB" ./appimagetool-x86_64.AppImage squashfs-root/
         pwd; ls -lah
 
         fileName=$(ls MComix*.AppImage)
