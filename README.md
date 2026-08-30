@@ -6,7 +6,7 @@ MComix is a user-friendly, customizable image viewer. It is specifically designe
 https://sourceforge.net/projects/mcomix/
 
 ## Repository: https://github.com/ryuuzaki42/MComix_AppImage
-    MComix: 3.1.1
+    MComix: 3.2.0
 
 ---
 https://sourceforge.net/projects/mcomix/files/
