@@ -76,7 +76,7 @@ jobs:
     - name: Make AppImage
       run: |
         set -x
-        tag=2 #1        
+        tag=1 #1        
         version=$(grep -o "MComix:.*" README.md | cut -d ' ' -f2)
         echo "MComix version: $version - Tag: $tag"
 
